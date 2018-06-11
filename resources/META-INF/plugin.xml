@@ -1,0 +1,44 @@
+<idea-plugin>
+  <id>com.steadyoung.ioc.codeplug</id>
+  <name>SteadyoungIOC-CodePlug</name>
+  <version>1.0</version>
+  <vendor email="steadyoung@foxmail.com" url="https://blog.csdn.net/wenwins">Steadyoung</vendor>
+
+  <description>
+    SteadyoungIOC注解框架的代码生成插件
+  </description>
+
+  <change-notes>
+    V1.0  自动生成@FindView、@OnClick、@CheckNet等注解代码！
+    快捷键 Ctrl + Shift + I 或者 Ctrl + Shift + Alt + I
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="145.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+    <action
+            id="SteadyoungIOC-CodePlugId"
+            class="action.SteadyoungIOC"
+            text="SteadyoungIOC-CodePlug"
+            description="SteadyoungIOC注解框架代码生成插件"
+            icon="/icon/icon_steadyoung_ioc.png"
+    >
+      <add-to-group group-id="CodeMenu" anchor="first"/>
+      <add-to-group group-id="GenerateGroup" anchor="first"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl I" second-keystroke="shift ctrl alt I"/>
+    </action>
+  </actions>
+
+</idea-plugin>

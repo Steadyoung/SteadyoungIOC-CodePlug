@@ -7,6 +7,12 @@ import org.apache.http.util.TextUtils;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Created by Administrator on 2018/6/8.
+ * Email : steadyoung@foxmail.com
+ * Auth  : wayne
+ * Desc  : TODO
+ */
 public class Element {
 
     // 判断id正则

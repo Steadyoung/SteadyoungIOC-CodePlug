@@ -17,7 +17,10 @@ import java.awt.event.ActionListener;
 import java.util.List;
 
 /**
- * Created by wangzai on 2016/11/24.
+ * Created by Administrator on 2018/6/8.
+ * Email : steadyoung@foxmail.com
+ * Auth  : wayne
+ * Desc  : TODO
  */
 public class FindViewByIdDialog extends JFrame implements ActionListener, IdBean.EnableActionListener {
     private String mTitle = "FindViewByIdDialog";

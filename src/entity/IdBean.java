@@ -7,7 +7,10 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
 /**
- * Created by Darren on 2016/12/14.
+ * Created by Administrator on 2018/6/8.
+ * Email : steadyoung@foxmail.com
+ * Auth  : wayne
+ * Desc  : TODO
  */
 public class IdBean extends JPanel {
     private JCheckBox mEnableCheckBox;

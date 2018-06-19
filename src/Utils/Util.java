@@ -21,6 +21,12 @@ import java.util.Locale;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Created by Administrator on 2018/6/8.
+ * Email : steadyoung@foxmail.com
+ * Auth  : wayne
+ * Desc  : TODO
+ */
 public class Util {
     // 通过strings.xml获取的值
     private static String StringValue;
@@ -119,56 +125,54 @@ public class Util {
         file.accept(new XmlRecursiveElementVisitor() {
             @Override
             public void visitElement(PsiElement element) {
-                super.visitElement(element);
-                // 解析Xml标签
-                if (element instanceof XmlTag) {
-                    XmlTag tag = (XmlTag) element;
-                    // 获取Tag的名字（TextView）或者自定义
-                    String name = tag.getName();
-                    // 如果有include
-                    if (name.equalsIgnoreCase("include")) {
-                        // 获取布局
-                        XmlAttribute layout = tag.getAttribute("layout", null);
-                        // 获取project
-                        Project project = file.getProject();
-                        // 布局文件
-                        XmlFile include = null;
-                        PsiFile[] psiFiles = FilenameIndex.getFilesByName(project, getLayoutName(layout.getValue()) + ".xml", GlobalSearchScope.allScope(project));
-                        if (psiFiles.length > 0) {
-                            include = (XmlFile) psiFiles[0];
-                        }
-                        if (include != null) {
-                            // 递归
-                            getIDsFromLayout(include, elements);
-                            return;
-                        }
+            super.visitElement(element);
+            // 解析Xml标签
+            if (element instanceof XmlTag) {
+                XmlTag tag = (XmlTag) element;
+                // 获取Tag的名字（TextView）或者自定义
+                String name = tag.getName();
+                // 如果有include
+                if (name.equalsIgnoreCase("include")) {
+                    // 获取布局
+                    XmlAttribute layout = tag.getAttribute("layout", null);
+                    // 获取project
+                    Project project = file.getProject();
+                    // 布局文件
+                    XmlFile include = null;
+                    PsiFile[] psiFiles = FilenameIndex.getFilesByName(project, getLayoutName(layout.getValue()) + ".xml", GlobalSearchScope.allScope(project));
+                    if (psiFiles.length > 0) {
+                        include = (XmlFile) psiFiles[0];
                     }
-                    // 获取id字段属性
-                    XmlAttribute id = tag.getAttribute("android:id", null);
-                    if (id == null) {
+                    if (include != null) {
+                        // 递归
+                        getIDsFromLayout(include, elements);
                         return;
-                    }
-                    // 获取id的值
-                    String idValue = id.getValue();
-                    if (idValue == null) {
-                        return;
-                    }
-                    XmlAttribute aClass = tag.getAttribute("class", null);
-                    if (aClass != null) {
-                        name = aClass.getValue();
-                    }
-                    // 添加到list
-                    try {
-                        Element e = new Element(name, idValue,  tag);
-                        elements.add(e);
-                    } catch (IllegalArgumentException e) {
-
                     }
                 }
+                // 获取id字段属性
+                XmlAttribute id = tag.getAttribute("android:id", null);
+                if (id == null) {
+                    return;
+                }
+                // 获取id的值
+                String idValue = id.getValue();
+                if (idValue == null) {
+                    return;
+                }
+                XmlAttribute aClass = tag.getAttribute("class", null);
+                if (aClass != null) {
+                    name = aClass.getValue();
+                }
+                // 添加到list
+                try {
+                    Element e = new Element(name, idValue,  tag);
+                    elements.add(e);
+                } catch (IllegalArgumentException e) {
+
+                }
+            }
             }
         });
-
-
         return elements;
     }
 

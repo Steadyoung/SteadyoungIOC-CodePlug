@@ -1,6 +1,7 @@
 # SteadyoungIOC-CodePlug注解框架快速生成代码插件
 
-![LOGO图片](https://www.jianshu.com/c/3734b4eb3d17)
+![LOGO图片](https://upload.jianshu.io/collections/images/1633997/%E4%B8%8B%E8%BD%BD.png?imageMogr2/auto-orient/strip|imageView2/1/w/240/h/240)
+
 博客解说：[Android Studio插件开发-SteadyoungIOC注解生成器：Steadyoung-CodePlug](https://www.jianshu.com/p/dea6b3388709)
 
 注解框架：[自己简易打造的IOC注解框架：SteadyoungIOC](https://www.jianshu.com/p/0c11f3f27ddc)
